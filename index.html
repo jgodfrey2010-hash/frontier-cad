@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontier CAD</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="ribbon">
+        <div class="ribbon-group">
+          <div class="group-label">FILE</div>
+          <button data-tool="new" class="tool-button">New</button>
+          <button data-tool="open" class="tool-button">Open</button>
+          <button data-tool="save" class="tool-button">Save</button>
+          <button data-tool="import-dxf" class="tool-button">Import</button>
+          <button data-tool="export-dxf" class="tool-button">Export</button>
+        </div>
+
+        <div class="ribbon-group">
+          <div class="group-label">HOME</div>
+          <button data-tool="select" class="tool-button active">Select</button>
+          <button data-tool="fence" class="tool-button">Fence</button>
+          <button data-tool="move" class="tool-button">Move</button>
+          <button data-tool="copy" class="tool-button">Copy</button>
+          <button data-tool="delete" class="tool-button">Delete</button>
+          <button data-tool="rotate" class="tool-button">Rotate</button>
+          <button data-tool="scale" class="tool-button">Scale</button>
+        </div>
+
+        <div class="ribbon-group">
+          <div class="group-label">DRAW</div>
+          <button data-tool="line" class="tool-button">Line</button>
+          <button data-tool="polyline" class="tool-button">Polyline</button>
+          <button data-tool="circle" class="tool-button">Circle</button>
+          <button data-tool="arc" class="tool-button">Arc</button>
+          <button data-tool="text" class="tool-button">Text</button>
+          <button data-tool="point" class="tool-button">Point</button>
+          <button data-tool="rectangle" class="tool-button">Rectangle</button>
+        </div>
+
+        <div class="ribbon-group">
+          <div class="group-label">VIEW</div>
+          <button data-tool="zoom-in" class="tool-button">Zoom In</button>
+          <button data-tool="zoom-out" class="tool-button">Zoom Out</button>
+          <button data-tool="fit-view" class="tool-button">Fit View</button>
+          <button data-tool="pan" class="tool-button">Pan</button>
+        </div>
+
+        <div class="ribbon-group">
+          <div class="group-label">SURVEY</div>
+          <button data-tool="bearing-distance" class="tool-button">B-D</button>
+          <button data-tool="point-label" class="tool-button">Pts</button>
+          <button data-tool="undo" class="tool-button">Undo</button>
+          <button data-tool="redo" class="tool-button">Redo</button>
+        </div>
+
+        <div class="ribbon-group">
+          <div class="group-label">REF</div>
+          <button data-tool="reference-attach" class="tool-button">Attach</button>
+          <button data-tool="reference-toggle" class="tool-button">Toggle</button>
+          <button data-tool="reference-detach" class="tool-button">Detach</button>
+        </div>
+
+        <div class="ribbon-group narrow">
+          <div class="group-label">LEVEL</div>
+          <select id="layerSelect" class="layer-select"></select>
+          <button data-tool="toggle-layer" class="tool-button">Visible</button>
+        </div>
+      </header>
+
+      <div class="toolbar-secondary">
+        <div class="status-block">
+          <span>Tool:</span>
+          <strong id="currentToolLabel">Select</strong>
+        </div>
+        <div class="status-block">
+          <span>Coords:</span>
+          <strong id="coordReadout">0.000, 0.000</strong>
+        </div>
+        <div class="status-block">
+          <span>Layer:</span>
+          <strong id="layerReadout">0</strong>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="cadCanvas" width="1200" height="760"></canvas>
+      </div>
+    </div>
+
+    <input id="fileImportInput" type="file" accept=".dxf,.txt,.csv" hidden />
+    <script src="app.js"></script>
+  </body>
+</html>

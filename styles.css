@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #dfe5ee;
+  --sheet: #eff3f8;
+  --ribbon: #dfe4eb;
+  --ribbon-border: #b8c0cc;
+  --panel: #f8fafc;
+  --accent: #2d5d9d;
+  --accent-strong: #1d4073;
+  --text: #1d2430;
+  --muted: #667085;
+  --grid: rgba(91, 103, 121, 0.14);
+  --selection: #ffb020;
+  --snap: #1fdbb0;
+  --danger: #d64045;
+  --shadow: rgba(17, 24, 39, 0.08);
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 6px 8px;
+  gap: 8px;
+  background: var(--ribbon);
+  border-bottom: 1px solid var(--ribbon-border);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.ribbon-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 8px;
+  border: 1px solid var(--ribbon-border);
+  background: linear-gradient(#edf2f8, #dfe6ee);
+  border-radius: 6px;
+  min-height: 76px;
+}
+
+.ribbon-group.narrow {
+  min-width: 180px;
+}
+
+.group-label {
+  width: 100%;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.tool-button,
+.layer-select {
+  border: 1px solid rgba(31, 41, 55, 0.18);
+  background: linear-gradient(#fdfefe, #e7edf7);
+  color: var(--text);
+  border-radius: 5px;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  min-height: 32px;
+  transition: all 0.12s ease;
+}
+
+.tool-button:hover,
+.layer-select:hover {
+  border-color: rgba(45, 93, 157, 0.5);
+}
+
+.tool-button.active {
+  background: linear-gradient(#dfeeff, #c8dff8);
+  border-color: var(--accent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.toolbar-secondary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--ribbon-border);
+  background: #e9eef4;
+  font-size: 12px;
+}
+
+.status-block {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.status-block strong {
+  color: var(--text);
+}
+
+.canvas-wrap {
+  flex: 1;
+  padding: 8px;
+  background: var(--bg);
+}
+
+#cadCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid var(--ribbon-border);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  cursor: crosshair;
+}
+
+@media (max-width: 1200px) {
+  .ribbon {
+    gap: 6px;
+  }
+
+  .ribbon-group {
+    min-height: 70px;
+  }
+}
